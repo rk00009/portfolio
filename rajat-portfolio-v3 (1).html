@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajat Kar | Freelancer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#f7f7f3;
+  --white:#ffffff;
+  --dark:#111;
+  --accent:#ff4d00;
+  --muted:#888;
+  --border:#e5e5de;
+  --font:'Space Grotesk',sans-serif;
+  --mono:'Fira Code',monospace;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--dark);font-family:var(--font);font-size:16px;line-height:1.6;}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 4rem;
+  background:rgba(247,247,243,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.logo{font-weight:700;font-size:1.1rem;letter-spacing:-0.02em;}
+.logo span{color:var(--accent);}
+.nav-right{display:flex;align-items:center;gap:2rem;}
+.nav-right a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;}
+.nav-right a:hover{color:var(--dark);}
+.nav-btn{
+  background:var(--dark);color:#fff!important;
+  padding:0.5rem 1.3rem;border-radius:100px;
+  font-size:0.83rem;font-weight:600;text-decoration:none;
+  transition:background 0.2s;
+}
+.nav-btn:hover{background:var(--accent)!important;}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:7rem 4rem 4rem;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:0.78rem;color:var(--muted);
+  margin-bottom:1.8rem;
+  opacity:0;animation:up 0.6s 0.1s ease forwards;
+}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+h1{
+  font-size:clamp(3.2rem,7vw,6rem);
+  font-weight:700;line-height:1;letter-spacing:-0.04em;
+  margin-bottom:1.2rem;
+  opacity:0;animation:up 0.6s 0.2s ease forwards;
+}
+h1 .accent{color:var(--accent);}
+h1 .light{font-weight:400;color:var(--muted);font-size:clamp(1.8rem,3.5vw,3.2rem);}
+.hero-sub{
+  font-size:1rem;color:var(--muted);max-width:440px;
+  line-height:1.8;margin-bottom:2.5rem;
+  opacity:0;animation:up 0.6s 0.3s ease forwards;
+}
+.hero-btns{
+  display:flex;gap:12px;flex-wrap:wrap;
+  opacity:0;animation:up 0.6s 0.4s ease forwards;
+}
+.btn-primary{
+  background:var(--dark);color:#fff;
+  padding:0.85rem 1.8rem;border-radius:100px;
+  font-weight:600;font-size:0.88rem;text-decoration:none;
+  transition:background 0.2s;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.btn-primary:hover{background:var(--accent);}
+.btn-ghost{
+  background:transparent;color:var(--dark);
+  padding:0.85rem 1.8rem;border-radius:100px;
+  font-weight:500;font-size:0.88rem;text-decoration:none;
+  border:1.5px solid var(--border);transition:border-color 0.2s;
+}
+.btn-ghost:hover{border-color:var(--dark);}
+
+/* SECTIONS */
+.section{padding:5rem 4rem;}
+.section.gray{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.section.dark{background:var(--dark);color:#fff;}
+.sec-label{font-family:var(--mono);font-size:0.72rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;}
+.sec-title{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;letter-spacing:-0.03em;margin-bottom:2.5rem;line-height:1.1;}
+.section.dark .sec-label{color:var(--accent);}
+.section.dark .sec-title{color:#fff;}
+
+/* SERVICES */
+.service-list{display:flex;flex-direction:column;}
+.srow{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.6rem 0;border-bottom:1px solid var(--border);
+  transition:padding-left 0.25s;flex-wrap:wrap;gap:0.8rem;
+  cursor:default;
+}
+.srow:first-child{border-top:1px solid var(--border);}
+.srow:hover{padding-left:0.8rem;}
+.srow-left{display:flex;align-items:center;gap:1.2rem;}
+.srow-num{font-family:var(--mono);font-size:0.72rem;color:var(--muted);}
+.srow-name{font-size:1rem;font-weight:600;}
+.srow-desc{font-size:0.82rem;color:var(--muted);margin-top:2px;}
+.srow-right{display:flex;align-items:center;gap:1.2rem;}
+.stag{
+  font-family:var(--mono);font-size:0.78rem;
+  background:var(--bg);border:1px solid var(--border);
+  padding:3px 12px;border-radius:100px;
+}
+.sarrow{color:var(--muted);transition:transform 0.2s,color 0.2s;}
+.srow:hover .sarrow{transform:translateX(4px);color:var(--accent);}
+
+/* WORK */
+.work-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+.wimg-card{
+  border-radius:12px;overflow:hidden;
+  border:1px solid #252525;transition:transform 0.25s,border-color 0.25s;
+  cursor:pointer;position:relative;aspect-ratio:1/1;
+  background:#1a1a1a;
+}
+.wimg-card:hover{transform:translateY(-5px);border-color:#3a3a3a;}
+.wimg-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
+.wimg-card:hover img{transform:scale(1.04);}
+.wimg-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0.55);
+  display:flex;align-items:flex-end;padding:0.9rem;
+  opacity:0;transition:opacity 0.25s;
+}
+.wimg-card:hover .wimg-overlay{opacity:1;}
+.wimg-label{font-size:0.8rem;font-weight:600;color:#fff;}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:999;align-items:center;justify-content:center;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain;}
+.lightbox-close{position:fixed;top:1.2rem;right:1.5rem;color:#fff;font-size:2rem;cursor:pointer;line-height:1;}
+
+/* AI PACKAGE BOX */
+.ai-box{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:2rem;margin-top:1rem;
+}
+.ai-box-title{font-size:1rem;font-weight:600;margin-bottom:1rem;}
+.ai-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;}
+.ai-item{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:10px;padding:0.9rem 1rem;
+  font-size:0.85rem;
+}
+.ai-item-name{font-weight:600;margin-bottom:2px;}
+.ai-item-desc{font-size:0.78rem;color:var(--muted);}
+
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;align-items:start;}
+.pcard{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:18px;padding:1.8rem;position:relative;
+  transition:transform 0.25s;
+}
+.pcard:hover{transform:translateY(-3px);}
+.pcard.hot{border-color:var(--accent);}
+.hot-tag{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#fff;
+  font-size:0.7rem;font-weight:700;padding:3px 14px;
+  border-radius:100px;white-space:nowrap;letter-spacing:0.04em;
+}
+.ptier{font-family:var(--mono);font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;}
+.pprice{font-size:2.2rem;font-weight:700;letter-spacing:-0.04em;margin-bottom:0.2rem;}
+.pnote{font-size:0.78rem;color:var(--muted);margin-bottom:1.4rem;}
+.plist{list-style:none;margin-bottom:1.8rem;}
+.plist li{font-size:0.85rem;color:var(--muted);padding:0.4rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;}
+.plist li::before{content:'✓';color:var(--accent);font-weight:700;font-size:0.75rem;flex-shrink:0;}
+.pbtn{
+  display:block;text-align:center;padding:0.8rem;
+  border-radius:100px;font-weight:600;font-size:0.85rem;
+  text-decoration:none;transition:all 0.2s;
+}
+.pcard.hot .pbtn{background:var(--accent);color:#fff;}
+.pcard.hot .pbtn:hover{opacity:0.88;}
+.pcard:not(.hot) .pbtn{border:1.5px solid var(--border);color:var(--dark);}
+.pcard:not(.hot) .pbtn:hover{border-color:var(--dark);}
+
+/* CONTACT */
+.contact-wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+.contact-big{font-size:clamp(2.2rem,5vw,4rem);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:#fff;margin-bottom:0.8rem;}
+.contact-big span{color:var(--accent);}
+.contact-note{color:#666;font-size:0.95rem;max-width:320px;}
+.contact-btns{display:flex;flex-direction:column;gap:10px;}
+.cbtn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:0.85rem 1.6rem;border-radius:100px;
+  font-weight:600;font-size:0.88rem;text-decoration:none;
+  transition:opacity 0.2s;
+}
+.cbtn-wa{background:var(--accent);color:#fff;}
+.cbtn-wa:hover{opacity:0.85;}
+.cbtn-gh{background:#1e1e1e;color:#fff;border:1px solid #333;}
+.cbtn-gh:hover{border-color:#555;}
+
+footer{
+  padding:1.4rem 4rem;background:#0a0a0a;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+  font-size:0.78rem;color:#444;border-top:1px solid #1a1a1a;
+}
+.flogo{font-weight:700;color:#fff;}
+.flogo span{color:var(--accent);}
+
+/* HERO PHOTO */
+.hero{display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:3rem;}
+.hero-left{flex:1;}
+.hero-right{flex-shrink:0;}
+.hero-photo{
+  width:280px;height:340px;
+  border-radius:20px;
+  object-fit:cover;object-position:center top;
+  border:3px solid var(--border);
+  filter:grayscale(15%);
+  opacity:0;animation:up 0.6s 0.5s ease forwards;
+}
+@media(max-width:768px){
+  .hero{flex-direction:column-reverse;gap:2rem;}
+  .hero-photo{width:160px;height:200px;}
+}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-right a:not(.nav-btn){display:none;}
+  .hero,.section{padding-left:1.5rem;padding-right:1.5rem;}
+  .hero{padding-top:6rem;}
+  footer{padding:1.2rem 1.5rem;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Rajat<span>.</span></div>
+  <div class="nav-right">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://wa.me/919311657160?text=Hi%20Rajat!%20I%20want%20to%20hire%20you%20for%20a%20project." class="nav-btn">Hire me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="badge"><span class="badge-dot"></span> Open for work · Delhi, India</div>
+    <h1>
+      Hi, I'm<br>
+      <span class="accent">Rajat Kar.</span><br>
+      <span class="light">I build for the web.</span>
+    </h1>
+    <p class="hero-sub">B.Tech student & freelancer from Delhi. I design posters, banners & websites — and help businesses grow with AI-powered content.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/919311657160?text=Hi%20Rajat!%20I%20saw%20your%20portfolio%20and%20want%20to%20work%20with%20you." class="btn-primary" target="_blank">💬 WhatsApp Me</a>
+      <a href="#work" class="btn-ghost">See my work →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="rajat-photo.jpg" alt="Rajat Kar" class="hero-photo"/>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section gray" id="services">
+  <div class="sec-label">// what I do</div>
+  <h2 class="sec-title">Services</h2>
+  <div class="service-list">
+    <div class="srow">
+      <div class="srow-left">
+        <span class="srow-num">01</span>
+        <div>
+          <div class="srow-name">Posts, Posters & Banners</div>
+          <div class="srow-desc">Eye-catching designs for Instagram, events, ads & more — made in Canva & Figma</div>
+        </div>
+      </div>
+      <div class="srow-right">
+        <span class="stag">from ₹300</span>
+        <span class="sarrow">→</span>
+      </div>
+    </div>
+    <div class="srow">
+      <div class="srow-left">
+        <span class="srow-num">02</span>
+        <div>
+          <div class="srow-name">Website Design & Development</div>
+          <div class="srow-desc">Simple, clean websites with WhatsApp button — no unnecessary complexity</div>
+        </div>
+      </div>
+      <div class="srow-right">
+        <span class="stag">from ₹1,999</span>
+        <span class="sarrow">→</span>
+      </div>
+    </div>
+    <div class="srow">
+      <div class="srow-left">
+        <span class="srow-num">03</span>
+        <div>
+          <div class="srow-name">Content Writing</div>
+          <div class="srow-desc">Blogs, website copy, captions & product descriptions — SEO-friendly</div>
+        </div>
+      </div>
+      <div class="srow-right">
+        <span class="stag">from ₹300/post</span>
+        <span class="sarrow">→</span>
+      </div>
+    </div>
+    <div class="srow">
+      <div class="srow-left">
+        <span class="srow-num">04</span>
+        <div>
+          <div class="srow-name">AI Content Packages</div>
+          <div class="srow-desc">Monthly bulk content using AI — blogs, captions, scripts & more, delivered fast</div>
+        </div>
+      </div>
+      <div class="srow-right">
+        <span class="stag">from ₹999/mo</span>
+        <span class="sarrow">→</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-box" style="margin-top:2rem;">
+    <div class="ai-box-title">What's included in AI Content Packages 🤖</div>
+    <div class="ai-items">
+      <div class="ai-item">
+        <div class="ai-item-name">Blog Articles</div>
+        <div class="ai-item-desc">4–8 SEO blogs/month written & edited</div>
+      </div>
+      <div class="ai-item">
+        <div class="ai-item-name">Instagram Captions</div>
+        <div class="ai-item-desc">10–20 ready-to-post captions/month</div>
+      </div>
+      <div class="ai-item">
+        <div class="ai-item-name">Website Copy</div>
+        <div class="ai-item-desc">Home, About, Services page text</div>
+      </div>
+      <div class="ai-item">
+        <div class="ai-item-name">Product Descriptions</div>
+        <div class="ai-item-desc">For e-commerce & local shops</div>
+      </div>
+      <div class="ai-item">
+        <div class="ai-item-name">Email Newsletters</div>
+        <div class="ai-item-desc">Monthly emails for your customers</div>
+      </div>
+      <div class="ai-item">
+        <div class="ai-item-name">YouTube Scripts</div>
+        <div class="ai-item-desc">Full video scripts ready to record</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section dark" id="work">
+  <div class="sec-label">// portfolio</div>
+  <h2 class="sec-title">Recent work</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:2rem;">
+
+    <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;overflow:hidden;transition:transform 0.25s,border-color 0.25s;" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='#ff4d00'" onmouseout="this.style.transform='';this.style.borderColor='#2a2a2a'">
+      <div style="height:160px;background:#0e180e;display:flex;align-items:center;justify-content:center;font-size:3rem;">🌐</div>
+      <div style="padding:1.1rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.68rem;color:#ff4d00;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">Website Sample</div>
+        <div style="font-weight:600;font-size:0.95rem;color:#fff;margin-bottom:0.3rem;">Delhi Bites Restaurant</div>
+        <div style="font-size:0.8rem;color:#555;margin-bottom:1rem;">Simple restaurant website with menu, WhatsApp order button & contact</div>
+        <a href="delhi-bites-restaurant.html" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:#ff4d00;text-decoration:none;font-weight:600;border:1px solid #ff4d00;padding:5px 14px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='#ff4d00';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='#ff4d00'">View project →</a>
+      </div>
+    </div>
+
+    <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;overflow:hidden;transition:transform 0.25s,border-color 0.25s;" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='#ff4d00'" onmouseout="this.style.transform='';this.style.borderColor='#2a2a2a'">
+      <div style="height:160px;background:#1a100a;display:flex;align-items:center;justify-content:center;font-size:3rem;">✏️</div>
+      <div style="padding:1.1rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.68rem;color:#ff4d00;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">Content Writing Sample</div>
+        <div style="font-weight:600;font-size:0.95rem;color:#fff;margin-bottom:0.3rem;">Best Cafes in Delhi — SEO Blog</div>
+        <div style="font-size:0.8rem;color:#555;margin-bottom:1rem;">500+ word SEO article covering 5 top Delhi cafes — formatted & ready to publish</div>
+        <a href="https://drive.google.com/drive/folders/1KzSq-5FbgAY_pN5TSvLeuxN66djNsIe9?usp=sharing" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:#ff4d00;text-decoration:none;font-weight:600;border:1px solid #ff4d00;padding:5px 14px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='#ff4d00';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='#ff4d00'">View PDF →</a>
+      </div>
+    </div>
+
+    <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;overflow:hidden;transition:transform 0.25s,border-color 0.25s;" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='#ff4d00'" onmouseout="this.style.transform='';this.style.borderColor='#2a2a2a'">
+      <div style="height:160px;background:#0a0e1a;display:flex;align-items:center;justify-content:center;font-size:3rem;">🤖</div>
+      <div style="padding:1.1rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.68rem;color:#ff4d00;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">AI Content Package Sample</div>
+        <div style="font-weight:600;font-size:0.95rem;color:#fff;margin-bottom:0.3rem;">FitLife India — Instagram Pack</div>
+        <div style="font-size:0.8rem;color:#555;margin-bottom:1rem;">10 ready-to-post captions + hashtags + posting schedule for a fitness brand</div>
+        <a href="ai-content-package-sample.html" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:#ff4d00;text-decoration:none;font-weight:600;border:1px solid #ff4d00;padding:5px 14px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='#ff4d00';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='#ff4d00'">View sample →</a>
+      </div>
+    </div>
+
+    <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:14px;overflow:hidden;transition:transform 0.25s,border-color 0.25s;" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='#ff4d00'" onmouseout="this.style.transform='';this.style.borderColor='#2a2a2a'">
+      <div style="height:160px;background:#12121e;display:flex;align-items:center;justify-content:center;font-size:3rem;">🎨</div>
+      <div style="padding:1.1rem;">
+        <div style="font-family:'Fira Code',monospace;font-size:0.68rem;color:#ff4d00;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">Posters, Posts & Banners</div>
+        <div style="font-weight:600;font-size:0.95rem;color:#fff;margin-bottom:0.3rem;">Design Portfolio</div>
+        <div style="font-size:0.8rem;color:#555;margin-bottom:1rem;">Browse all my poster, banner & social media post designs on Google Drive</div>
+        <a href="https://drive.google.com/drive/folders/1Io8erFEtosluHNXyeHgtUqTFIGeXNLHm?usp=sharing" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:#ff4d00;text-decoration:none;font-weight:600;border:1px solid #ff4d00;padding:5px 14px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='#ff4d00';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='#ff4d00'">View designs →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">×</span>
+  <img id="lightbox-img" src="" alt="Preview"/>
+</div>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="sec-label">// pricing</div>
+  <h2 class="sec-title">Simple packages</h2>
+  <div class="price-grid">
+    <div class="pcard">
+      <div class="ptier">Basic</div>
+      <div class="pprice">₹999</div>
+      <div class="pnote">One-time · Quick project</div>
+      <ul class="plist">
+        <li>3 posters or banners</li>
+        <li>OR 1-page simple website</li>
+        <li>OR 3 blog articles</li>
+        <li>Delivered in 3 days</li>
+        <li>2 revision rounds</li>
+      </ul>
+      <a href="https://wa.me/919311657160?text=Hi%20Rajat!%20I%27m%20interested%20in%20the%20Basic%20package%20(3%20posters%2Fwebsite%2Fblogs%20for%20%E2%82%B9999).%20Can%20we%20discuss%3F" class="pbtn" target="_blank">Get started</a>
+    </div>
+    <div class="pcard hot">
+      <div class="hot-tag">Best Value</div>
+      <div class="ptier">Standard</div>
+      <div class="pprice">₹2,499</div>
+      <div class="pnote">One-time · Most popular</div>
+      <ul class="plist">
+        <li>3-page website + WhatsApp button</li>
+        <li>5 poster/banner designs</li>
+        <li>3 SEO blog articles</li>
+        <li>AI-written page copy</li>
+        <li>Mobile responsive</li>
+        <li>Unlimited revisions</li>
+        <li>Delivered in 6 days</li>
+      </ul>
+      <a href="https://wa.me/919311657160?text=Hi%20Rajat!%20I%27m%20interested%20in%20the%20Standard%20package%20(website%20%2B%20posters%20%2B%20blogs%20for%20%E2%82%B92%2C499).%20Can%20we%20discuss%3F" class="pbtn" target="_blank">Get started</a>
+    </div>
+    <div class="pcard">
+      <div class="ptier">Monthly</div>
+      <div class="pprice">₹1,999</div>
+      <div class="pnote">Per month · AI Content</div>
+      <ul class="plist">
+        <li>6 SEO blog articles</li>
+        <li>20 Instagram captions</li>
+        <li>Email newsletter</li>
+        <li>Product descriptions</li>
+        <li>Fast 48hr delivery</li>
+        <li>WhatsApp support</li>
+      </ul>
+      <a href="https://wa.me/919311657160?text=Hi%20Rajat!%20I%27m%20interested%20in%20the%20Monthly%20AI%20Content%20package%20(%E2%82%B91%2C999%2Fmo).%20Can%20we%20discuss%3F" class="pbtn" target="_blank">Get started</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section dark" id="contact">
+  <div class="contact-wrap">
+    <div>
+      <div class="sec-label">// get in touch</div>
+      <div class="contact-big">Let's work<br><span>together.</span></div>
+      <p class="contact-note">Have a project? Message me on WhatsApp — I reply within a few hours.</p>
+    </div>
+    <div class="contact-btns">
+      <a href="https://wa.me/919311657160?text=Hi%20Rajat!%20I%20saw%20your%20portfolio%20and%20want%20to%20work%20with%20you." class="cbtn cbtn-wa">💬 WhatsApp — +91 93116 57160</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">Rajat<span>.</span></div>
+  <div>© 2026 Rajat Kar · Delhi, India</div>
+  <div>+91 93116 57160</div>
+</footer>
+
+<script>
+function openLightbox(src){
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.getElementById('lightbox-img').src='';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+</script>
+</body>
+</html>
