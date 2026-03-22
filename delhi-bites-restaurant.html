@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delhi Bites | Authentic Delhi Cuisine</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#fffdf8;
+  --dark:#1a1008;
+  --accent:#e85d04;
+  --accent2:#f48c06;
+  --muted:#888;
+  --border:#ede8df;
+  --font:'DM Sans',sans-serif;
+  --head:'Playfair Display',serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--dark);font-family:var(--font);font-size:16px;}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 4rem;
+  background:rgba(255,253,248,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.logo{font-family:var(--head);font-size:1.3rem;font-weight:700;color:var(--dark);}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--dark);}
+.nav-wa{
+  background:var(--accent);color:#fff;
+  padding:0.5rem 1.3rem;border-radius:100px;
+  font-size:0.83rem;font-weight:600;text-decoration:none;
+  transition:opacity 0.2s;
+}
+.nav-wa:hover{opacity:0.85;}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:8rem 4rem 4rem;
+  background: #1a1008;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&q=80') center/cover no-repeat;
+  opacity:0.25;
+}
+.hero-content{position:relative;z-index:1;max-width:650px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(232,93,4,0.15);border:1px solid rgba(232,93,4,0.3);
+  padding:5px 14px;border-radius:100px;
+  font-size:0.78rem;color:var(--accent2);
+  letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+h1{
+  font-family:var(--head);
+  font-size:clamp(3rem,6vw,5.5rem);
+  font-weight:700;line-height:1.05;
+  color:#fff;margin-bottom:1.2rem;
+  letter-spacing:-0.02em;
+}
+h1 span{color:var(--accent);}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.6);max-width:420px;line-height:1.8;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-orange{
+  background:var(--accent);color:#fff;
+  padding:0.9rem 2rem;border-radius:100px;
+  font-weight:600;font-size:0.9rem;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:opacity 0.2s;
+}
+.btn-orange:hover{opacity:0.85;}
+.btn-ghost{
+  background:transparent;color:#fff;
+  padding:0.9rem 2rem;border-radius:100px;
+  font-weight:500;font-size:0.9rem;text-decoration:none;
+  border:1.5px solid rgba(255,255,255,0.25);
+  transition:border-color 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.6);}
+
+/* ABOUT */
+.about{
+  padding:6rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+  background:var(--bg);
+}
+.about-label{font-size:0.72rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;font-weight:500;}
+.about-title{font-family:var(--head);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;margin-bottom:1.2rem;line-height:1.2;}
+.about-text{color:var(--muted);line-height:1.9;margin-bottom:1.5rem;}
+.about-stats{display:flex;gap:2rem;}
+.stat{text-align:center;}
+.stat-num{font-family:var(--head);font-size:2rem;font-weight:700;color:var(--accent);}
+.stat-label{font-size:0.78rem;color:var(--muted);margin-top:2px;}
+.about-img{
+  width:100%;height:380px;border-radius:20px;overflow:hidden;
+  background:url('https://images.unsplash.com/photo-1567337710282-00832b415979?w=800&q=80') center/cover;
+}
+
+/* MENU */
+.menu{padding:6rem 4rem;background:#fff;border-top:1px solid var(--border);}
+.sec-label{font-size:0.72rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;font-weight:500;}
+.sec-title{font-family:var(--head);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;margin-bottom:2.5rem;line-height:1.1;}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.menu-card{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+  transition:transform 0.25s,border-color 0.25s;
+}
+.menu-card:hover{transform:translateY(-4px);border-color:#d4c9b8;}
+.menu-img{height:160px;background:center/cover no-repeat;}
+.menu-body{padding:1.1rem;}
+.menu-name{font-family:var(--head);font-weight:600;font-size:1rem;margin-bottom:0.3rem;}
+.menu-desc{font-size:0.82rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.5;}
+.menu-price{font-size:0.9rem;font-weight:600;color:var(--accent);}
+
+/* CONTACT */
+.contact{
+  padding:5rem 4rem;
+  background:var(--dark);color:#fff;
+  text-align:center;
+}
+.contact h2{font-family:var(--head);font-size:clamp(2rem,4vw,3rem);margin-bottom:0.8rem;}
+.contact h2 span{color:var(--accent);}
+.contact p{color:rgba(255,255,255,0.5);margin-bottom:2rem;font-size:0.95rem;}
+.contact-info{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;}
+.cinfo{font-size:0.88rem;color:rgba(255,255,255,0.6);}
+.cinfo strong{color:#fff;display:block;margin-bottom:2px;}
+.wa-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--accent);color:#fff;
+  padding:1rem 2.5rem;border-radius:100px;
+  font-weight:700;font-size:1rem;text-decoration:none;
+  transition:opacity 0.2s;
+}
+.wa-btn:hover{opacity:0.85;}
+
+footer{
+  padding:1.2rem 4rem;background:#0f0a04;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+  font-size:0.78rem;color:#444;
+}
+.flogo{font-family:var(--head);font-weight:700;color:#fff;font-size:1rem;}
+.flogo span{color:var(--accent);}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero,.about,.menu,.contact{padding-left:1.5rem;padding-right:1.5rem;}
+  .about{grid-template-columns:1fr;gap:2rem;}
+  .about-img{height:250px;}
+  footer{padding:1.2rem 1.5rem;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Delhi<span>Bites.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919999999999?text=Hi!%20I%20want%20to%20place%20an%20order." class="nav-wa">Order Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">🍛 Now open in Lajpat Nagar, Delhi</div>
+    <h1>Taste the <span>Real Delhi</span> on Your Plate.</h1>
+    <p class="hero-sub">Authentic home-style Delhi food — from butter chicken to chole bhature — made fresh every day with love.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/919999999999?text=Hi!%20I%20want%20to%20place%20an%20order%20from%20Delhi%20Bites." class="btn-orange">💬 Order on WhatsApp</a>
+      <a href="#menu" class="btn-ghost">See our menu →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="about-label">Our story</div>
+    <h2 class="about-title">Bringing Delhi's streets to your table</h2>
+    <p class="about-text">Delhi Bites was started in 2019 with one simple goal — serve food that tastes exactly like Delhi's famous street food, but in a clean, comfortable setting. Every recipe is handed down from our family kitchen.</p>
+    <div class="about-stats">
+      <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years serving</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Menu items</div></div>
+      <div class="stat"><div class="stat-num">4.8★</div><div class="stat-label">Zomato rating</div></div>
+    </div>
+  </div>
+  <div class="about-img"></div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="sec-label">Our specialities</div>
+  <h2 class="sec-title">Popular dishes</h2>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&q=80');"></div>
+      <div class="menu-body">
+        <div class="menu-name">Butter Chicken</div>
+        <div class="menu-desc">Tender chicken in rich tomato-cream gravy. Our bestseller.</div>
+        <div class="menu-price">₹280</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&q=80');"></div>
+      <div class="menu-body">
+        <div class="menu-name">Chole Bhature</div>
+        <div class="menu-desc">Spicy chickpea curry with fluffy deep-fried bread. Delhi classic.</div>
+        <div class="menu-price">₹120</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=80');"></div>
+      <div class="menu-body">
+        <div class="menu-name">Dal Makhani</div>
+        <div class="menu-desc">Slow-cooked black lentils in butter and cream. Pure comfort.</div>
+        <div class="menu-price">₹220</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-img" style="background-image:url('https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&q=80');"></div>
+      <div class="menu-body">
+        <div class="menu-name">Paneer Tikka</div>
+        <div class="menu-desc">Chargrilled cottage cheese with spiced marinade. Must try.</div>
+        <div class="menu-price">₹240</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Come visit us or <span>order now</span></h2>
+  <p>We're open 11am – 11pm, 7 days a week</p>
+  <div class="contact-info">
+    <div class="cinfo"><strong>Address</strong>32, Main Market, Lajpat Nagar, Delhi</div>
+    <div class="cinfo"><strong>Phone</strong>+91 99999 99999</div>
+    <div class="cinfo"><strong>Also on</strong>Zomato & Swiggy</div>
+  </div>
+  <a href="https://wa.me/919999999999?text=Hi!%20I%20want%20to%20place%20an%20order%20from%20Delhi%20Bites." class="wa-btn">💬 Order on WhatsApp</a>
+</section>
+
+<footer>
+  <div class="flogo">Delhi<span>Bites.</span></div>
+  <div>© 2026 Delhi Bites Restaurant · Lajpat Nagar, Delhi</div>
+  <div>Made by Rajat Kar</div>
+</footer>
+
+</body>
+</html>
